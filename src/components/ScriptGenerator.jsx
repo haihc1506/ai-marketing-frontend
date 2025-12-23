@@ -8,7 +8,8 @@ const ScriptGenerator = () => {
     targetAudience: "",
     usp: "",
     tone: "Hài hước, bắt trend",
-    socialNetwork: "TikTok",
+    socialNetwork: "Shopee Video",
+    aiModel: "gemini-2.5-flash",
   });
   const [videoFile, setVideoFile] = useState(null);
   const [videoPreview, setVideoPreview] = useState(null);
@@ -60,6 +61,7 @@ const ScriptGenerator = () => {
       data.append("usp", formData.usp);
       data.append("tone", formData.tone);
       data.append("socialNetwork", formData.socialNetwork);
+      data.append("aiModel", formData.aiModel);
 
       const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
@@ -206,6 +208,26 @@ const ScriptGenerator = () => {
                 }}
               />
             )}
+          </div>
+          <div className="form-group">
+            <label>Chọn Model AI (Trí tuệ):</label>
+            <select 
+              name="aiModel" 
+              value={formData.aiModel} 
+              onChange={handleInputChange}
+            >
+              {/* Lựa chọn cân bằng nhất */}
+              <option value="gemini-2.5-flash">⚡ Gemini 2.5 Flash (Khuyên dùng)</option>
+              
+              {/* Lựa chọn cho kịch bản cần "não to", deep */}
+              <option value="gemini-2.5-pro">🧠 Gemini 2.5 Pro (Thông minh nhất)</option>
+              
+              {/* Lựa chọn tốc độ bàn thờ */}
+              <option value="gemini-2.5-flash-lite">🚀 Gemini 2.5 Flash Lite (Siêu tốc)</option>
+              
+              {/* Trải nghiệm công nghệ tương lai */}
+              <option value="gemini-3-pro-preview">🧪 Gemini 3.0 Pro (Bản thử nghiệm)</option>
+            </select>
           </div>
           <div
             className="form-group"
