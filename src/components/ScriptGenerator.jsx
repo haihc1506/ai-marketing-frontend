@@ -166,7 +166,7 @@ const VOICE_OPTIONS = [
   { id: "thuminh", name: "👩 Thu Minh (Nữ Bắc - Cao cấp)" },
 ];
 
-const API_BASE_URL = "http://localhost:5000"; // Thay đổi theo địa chỉ Backend của bạn
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000"; // Thay đổi theo địa chỉ Backend của bạn
 
 const ScriptGenerator = () => {
   // 1. Quản lý Input đầu vào
