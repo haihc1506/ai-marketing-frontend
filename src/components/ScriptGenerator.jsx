@@ -166,7 +166,7 @@ const VOICE_OPTIONS = [
   { id: "thuminh", name: "👩 Thu Minh (Nữ Bắc - Cao cấp)" },
 ];
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"; // Thay đổi theo địa chỉ Backend của bạn
+const API_BASE_URL = process.env.REACT_APP_API_URL; // Thay đổi theo địa chỉ Backend của bạn
 
 const ScriptGenerator = () => {
   // 1. Quản lý Input đầu vào
@@ -351,10 +351,10 @@ const ScriptGenerator = () => {
       data.append("personaKey", formData.personaKey);
       data.append("strategies", JSON.stringify(formData.strategies));
 
-      const API_URL = "http://localhost:5000";
+      
 
       // Gọi API (Giả sử Backend chạy ở cổng 5000)
-      const response = await fetch(`${API_URL}/api/generate-script`, {
+      const response = await fetch(`${API_BASE_URL}/api/generate-script`, {
         method: "POST",
         headers: {
           "x-app-password": appPassword,
