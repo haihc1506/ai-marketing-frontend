@@ -788,7 +788,7 @@ const ScriptGenerator = () => {
               🔐 Mật khẩu truy cập (Bắt buộc):
             </label>
             <input
-              type="password"
+              type="text"
               value={appPassword}
               onChange={(e) => setAppPassword(e.target.value)}
               placeholder="Nhập mật khẩu team..."
